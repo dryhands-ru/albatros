@@ -63,7 +63,9 @@ span {
 .row {
     margin: 0;
 }
-
+.active {
+    color: #6fb0b7;
+}
 /*-----------------------Header-------------------------------- */
 .header {
     color: #fff;
@@ -100,10 +102,6 @@ i {
 }
 .menu__item:hover {
     box-shadow: -2px 1px 10px -2px #5DB6B2;
-}
-.menu-element:hover {
-    color: #00a2b3;
-    text-decoration: underline;
 }
 
 /*-------------------------team--------------------------*/
@@ -174,7 +172,8 @@ i {
     max-width: 100%;
 }
 .arcticmodal-overlay {
-    background-color: #343a40!important;
+    background-color: #121d1ceb!important;
+    opacity: 1!important;
 }
 .arcticmodal-container_i {
     margin: 0 auto;
@@ -215,7 +214,7 @@ i {
 
 /*------------------------------footer--------------------------------*/
 .footer {
-    margin-top: 64px;
+    margin-top: 70vh;
     background:#5DB6B2;
     color: #fff;
 }
@@ -340,7 +339,7 @@ i {
         margin-top: 0;
     }
     .top img {
-        max-width: 100px;
+        max-width: 86px;
     }
     i {
         font-size: 20px;
@@ -358,5 +357,11 @@ i {
     .col {
         padding-right: 10px;
         padding-left: 20px;
+    }
+    .galery {
+    margin-left: auto;
+    }
+    .header {
+        height: 100%;
     }
 }

@@ -41,21 +41,20 @@
 				<div class="galery d-flex col-10 col-md-9">
 					<div class="col">
 						<div class="menu-horizont d-flex">
-							<a href="/" class="top">
+
+							<a href="{% url 'mainpage' %}" class="top">
 								<img src="{{ MEDIA_URL }}{{ top_pic }}" alt="">
 							</a>
-							<a href="" class="menu-element">
-								<i class="fas fa-arrow-circle-left"></i>
+
+							{% for idx, item in horizontmenuitems %}
+							<ul class="menu" id="slow-down2">
+							<li class="menu__item">
+							<a href="{% url 'mainpage' %}{{ idx }}" class="menu__btn">
+								{{ item.name }}
 							</a>
-							<a href="" class="menu-element">
-								<i class="fas fa-arrow-circle-up"></i>
-							</a>
-							<a href="" class="menu-element">
-								<i class="fas fa-arrow-circle-right"></i>
-							</a>
-							<a href="" class="menu-element">
-								<i class="fas fa-arrow-circle-down"></i>
-							</a>
+							</li>
+								</ul>
+							{% endfor %}
 						</div>
 					</div>
 {% block content %}
