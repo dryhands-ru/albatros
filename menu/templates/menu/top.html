@@ -1,22 +1,22 @@
 {% extends 'menu/base.html' %}
 {% block content %}
-					{% for idx, dish in arrDishes %}
-					<div class="col-sm-6 col-lg-4">
-						<div class="card" style="background: url({{ MEDIA_URL }}{{ dish.main_photo }}) no-repeat center/cover;">
-							<div class="card__content d-flex">
-								<h3 class="card__title">
-									{{ dish.title }}
-								</h3>
-								<div class="price">
-									<span>
-										{{ dish.price }} руб.
-									</span>
-									<a id="{{ idx }}" href="#exampleModal" class="card__btn call">
-										Подробнее
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					{% endfor %}
+{% for idx, dish in arrDishes %}
+<div class="col-sm-6 col-lg-4">
+	<div class="card" style="background: url({{ MEDIA_URL }}{{ dish.main_photo }}) no-repeat center/cover;">
+		<div class="card__content d-flex">
+			<h3 class="card__title">
+				{{ dish.title }}
+			</h3>
+			<div class="price">
+				<span>
+					{{ dish.price }} руб.
+				</span>
+				<a id="{{ idx }}" href="#exampleModal" class="card__btn call">
+					Подробнее
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endfor %}
 {% endblock %}

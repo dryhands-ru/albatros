@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	{% load static %}
+{% load static %}
 	<meta charset="UTF-8">
 	<title>{{ title }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,9 +25,17 @@
 	<header id="header" class="header">
 		<div class="container">
 			<div class="row d-flex">
-				<div class="col-2 col-md-3">
-					<nav class="nav">
-						<ul class="menu" id="slow-down">
+				<div class="col-1 noPadding">
+					<button class="menu-open">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+					<nav class="nav d-none col-lg-6 menu-collapse">
+						<a href="{% url 'top' %}" class="top">
+							<img src="{{ MEDIA_URL }}{{ top_pic }}" alt="">
+						</a>
+						<ul class="menu-hamburger justify-content-around flex" id="slow-down" style="max-height: 70%;
+overflow-y: auto;">
 							{% for idx, item in menuitems %}
 							<li class="menu__item">
 								<a href="{% url 'mainpage' %}{{ idx }}" class="menu__btn">
@@ -37,28 +45,9 @@
 							{% endfor %}
 						</ul>
 					</nav>
-				</div>
-				<div class="galery d-flex col-10 col-md-9">
-					<div class="col">
-						<div class="menu-horizont d-flex">
-
-							<a href="{% url 'mainpage' %}" class="top">
-								<img src="{{ MEDIA_URL }}{{ top_pic }}" alt="">
-							</a>
-
-							{% for idx, item in horizontmenuitems %}
-							<ul class="menu" id="slow-down2">
-							<li class="menu__item">
-							<a href="{% url 'mainpage' %}{{ idx }}" class="menu__btn">
-								{{ item.name }}
-							</a>
-							</li>
-								</ul>
-							{% endfor %}
-						</div>
-					</div>
-{% block content %}
-{% endblock %}
+				<div class="galery d-flex col col-md-9">
+					{% block content %}
+					{% endblock %}
 				</div>
 			</div>
 		</div>
@@ -72,7 +61,6 @@
 			</div>
 		</div>
 	</footer>
-
 <div style="display: none;">
     <div class="box-modal" id="exampleModal">
     	<div class="box-modal_close arcticmodal-close">

@@ -1,22 +1,63 @@
-{% extends 'menu/base.html' %}
-{% block content %}
-					{% for idx, dish in arrDishes %}
-					<div class="col-sm-6 col-lg-4">
-						<div class="card" style="background: url({{ MEDIA_URL }}{{ dish.main_photo }}) no-repeat center/cover;">
-							<div class="card__content d-flex">
-								<h3 class="card__title">
-									{{ dish.title }}
-								</h3>
-								<div class="price">
-									<span>
-										{{ dish.price }} руб.
-									</span>
-									<a id="{{ idx }}" href="#exampleModal" class="card__btn call">
-										Подробнее
-									</a>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+{% load static %}
+	<meta charset="UTF-8">
+	<title>{{ title }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:type" content="article">
+	<meta property="og:image" content="#">
+	<meta property="og:site_name" content="">
+	<link rel="icon" href="https://sourceforge.net/u/unit193/user_icon?1476740662&w=32" type="image/x-icon">
+	<link rel="shortcut icon" href="https://sourceforge.net/u/unit193/user_icon?1476740662&w=32" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'css/jquery.arcticmodal-0.3.css'%}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css'%}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+	<link rel="stylesheet" href="{% static 'css/main.css'%}">
+</head>
+<body style="background: url({{ MEDIA_URL }}{{ backgroundMain }}) no-repeat center/cover fixed;">
+	<header id="header" class="header">
+		<div class="container">
+			<div class="row d-flex">
+				<div class="col wrap">
+					<ul class="catalog d-flex">
+						{% for idx, item in menuitems %}
+						<li class="col-sm-6 col-lg-4">
+							<a href="{% url 'mainpage' %}{{ idx }}" class="col">
+							<div class="catalog_list" style="background: url({{ MEDIA_URL }}{{ item.image }}) no-repeat center/cover;">
+								<div class="d-flex">
+									<div class="catalog_item">
+										<h3 class="catalog_title">
+											{{ item.name }}
+										</h3>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					{% endfor %}
-{% endblock %}
+							</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+	<footer id="footer" class="footer">
+		<div class="container">
+			<div class="row">
+				<p class="credits__title">
+					Блюдо на Вашем столе может отличаться от изображения
+				</p>
+			</div>
+		</div>
+	</footer>
+	<script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+	<script src="{% static 'js/jquery.arcticmodal-0.3.min.js'%}"></script>
+	<script src="{% static 'js/main.js'%}"></script>
+</body>
+</html>
